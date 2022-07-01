@@ -16,7 +16,7 @@ Example requests:
 
 `go run kvClient/main.go set org/names/aged 85`
 
-`go run kvClient/main.go get org/names/aged 85`
+`go run kvClient/main.go get org/names/aged`
 
-`go run kvClient/main.go del org/names/aged 85`
+`go run kvClient/main.go del org/names/aged`
 
