@@ -7,19 +7,25 @@ import (
 	"net/http"
 )
 
-type kvHandler struct{}
-
 func (kvh kvHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	_, err := w.Write([]byte("hello"))
-	if err != nil {
-		log.Printf("error writing response body: %s", err)
+	switch {
+	case r.Method == "GET":
+		kvh.getKV(w, r)
+	case r.Method == "PUT":
+		kvh.setKV(w, r)
+	case r.Method == "DELETE":
+		kvh.deleteKV(w, r)
+	default:
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 	}
 }
 
 // StartHTTP function to listen and serve
 func StartHTTP(config serverConfig.ServerConfig) {
 	mux := http.NewServeMux()
-	mux.Handle("/kv", kvHandler{})
+	mux.Handle("/kv", kvHandler{
+		kvPath: config.KvPath,
+	})
 
 	log.Printf("listening on :%s...", config.ListenPort)
 
