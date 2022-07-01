@@ -9,7 +9,8 @@ import (
 
 // ServerConfig to hold config
 type ServerConfig struct {
-	KvPath string `yaml:"kv_path"`
+	KvPath     string `yaml:"kv_path"`
+	ListenPort string `yaml:"listen_port"`
 }
 
 // ReadConfigFile to read server config
