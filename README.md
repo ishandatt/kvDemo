@@ -20,3 +20,4 @@ Example requests:
 
 `go run kvClient/main.go del org/names/aged`
 
+*NOTE*: It cannot handle RACE conditions
