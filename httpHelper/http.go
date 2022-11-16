@@ -2,7 +2,7 @@ package httpHelper
 
 import (
 	"fmt"
-	"kv-for-munish/serverConfig"
+	"github.com/ishandatt/kvDemo/serverConfig"
 	"log"
 	"net/http"
 )

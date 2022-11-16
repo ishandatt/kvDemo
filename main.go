@@ -1,8 +1,8 @@
 package main
 
 import (
-	"kv-for-munish/httpHelper"
-	sc "kv-for-munish/serverConfig"
+	"github.com/ishandatt/kvDemo/httpHelper"
+	sc "github.com/ishandatt/kvDemo/serverConfig"
 	"log"
 	"os"
 )
